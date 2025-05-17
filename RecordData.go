@@ -10,8 +10,9 @@ import (
 const NMAX int = 100
 
 type latihan struct {
-	nama    string
-	tanggal int
+	//nama    string
+	//jenis	daftarlatihan?
+	//tanggal time.Time?
 	durasi  time.Duration
 	jKalori int
 }
