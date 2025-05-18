@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	f "fmt"
 	s "strings"
 	"time"
@@ -10,16 +9,16 @@ import (
 const NMAX int = 100
 
 type latihan struct {
-	//nama    string
+	nama string
 	//jenis	daftarlatihan?
-	//tanggal time.Time?
+	tanggal time.Time
 	durasi  time.Duration
 	jKalori int
 }
 
 type tabLatihan [NMAX]latihan
 
-func Record() {
+func main() {
 	var A tabLatihan
 	var counter int
 	RecordProcess(&A, counter)
@@ -61,13 +60,14 @@ func RecordSubmit() bool {
 	f.Println("Apakah kamu yakin ingin menyelesaikan workout ini?")
 	f.Printf("1. Yes\n2. No\n\n")
 	f.Print("Pilihanmu? (1/2): ")
-	fmt.Scan(&num)
+	f.Scan(&num)
 
 	return num == 1
 }
 
 func RecordProcess(A *tabLatihan, counter int) {
 	var num int
+	A[counter].tanggal = time.Now()
 
 	for {
 		RecordMenu()
@@ -82,8 +82,11 @@ func RecordProcess(A *tabLatihan, counter int) {
 		case 3:
 			RecordKalori(A, counter)
 		case 4:
+			f.Print("Nama workout: ")
+			f.Scan(&A[counter].nama)
 			if RecordSubmit() {
 				f.Println("Workout berhasil disubmit.")
+				//f.Print(A[counter].tanggal)
 				return
 			}
 		default:
