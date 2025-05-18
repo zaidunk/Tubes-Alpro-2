@@ -18,7 +18,7 @@ type latihan struct {
 
 type tabLatihan [NMAX]latihan
 
-func main() {
+func Record() {
 	var A tabLatihan
 	var counter int
 	RecordProcess(&A, counter)
