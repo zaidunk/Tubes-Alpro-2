@@ -3,7 +3,6 @@ package menu
 import (
 	f "fmt"
 	s "strings"
-	"github.com/zaidunk/Tubes-Alpro-2/menu"
 )
 
 var acc, pass string
@@ -93,11 +92,11 @@ func MenuUtama() {
 
 		switch num {
 		case 1:
-			Jadwal()
+			//Jadwal()
 		case 2:
-			Record()
+			//Record()
 		case 3:
-			History()
+			//History()
 
 		}
 	}
