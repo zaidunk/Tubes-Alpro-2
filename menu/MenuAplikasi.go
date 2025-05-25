@@ -1,8 +1,9 @@
-package main
+package menu
 
 import (
 	f "fmt"
 	s "strings"
+	"github.com/zaidunk/Tubes-Alpro-2/menu"
 )
 
 var acc, pass string
