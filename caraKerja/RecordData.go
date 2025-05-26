@@ -1,4 +1,4 @@
-package main
+package caraKerja
 
 import (
 	f "fmt"
@@ -89,7 +89,7 @@ func UbahLatihan() {
 	CetakHeader("Ubah Data Latihan")
 
 	//Menampilkan riwayat latihan
-	Riwayat()
+	//Riwayat()
 	f.Print("Masukkan nomor latihan yang ingin diubah: ")
 	f.Scan(&x)
 
@@ -125,7 +125,7 @@ func HapusLatihan() {
 	var x, i int
 	CetakHeader("Hapus Data Latihan")
 	//Menampilkan riwayat latihan
-	Riwayat()
+	//Riwayat()
 
 	//Input index latihan yg ingin dihapus
 	f.Scan(&x)

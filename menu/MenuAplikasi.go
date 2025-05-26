@@ -3,6 +3,8 @@ package menu
 import (
 	f "fmt"
 	s "strings"
+
+	"github.com/zaidunk/Tubes-Alpro-2/caraKerja"
 )
 
 var acc, pass string
@@ -86,17 +88,17 @@ func MenuUtama() {
 	f.Printf("\nHalo %s, sudah latihan apa saja hari ini?\n", acc)
 	for num != 4 {
 		f.Printf("-------------------------------------------\n")
-		f.Printf("1. Jadwal\n2. Catatan data latihan\n3. Riwayat latihan\n4. Keluar\n\n")
+		f.Printf("1. List latihan\n2. Catatan data latihan\n3. Riwayat latihan\n4. Keluar\n\n")
 		f.Print("Pilihanmu: (1/2/3/4): ")
 		f.Scan(&num)
 
 		switch num {
 		case 1:
-			//Jadwal()
+			caraKerja.DataLatihan()
 		case 2:
 			//Record()
 		case 3:
-			//History()
+			//Riwayat()
 
 		}
 	}
