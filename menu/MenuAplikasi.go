@@ -94,7 +94,7 @@ func MenuUtama() {
 
 		switch num {
 		case 1:
-			caraKerja.DataLatihan()
+			caraKerja.DataDaftarLatihan()
 		case 2:
 			//Record()
 		case 3:
