@@ -94,10 +94,11 @@ var listLatihan = [NMAX]datLat{
 var n int = 75
 
 func DataDaftarLatihan() {
+	InsertionSortNamaLatihan()
 	var num int
 
 	length := 40
-	t1 := "Menu Daftar Latihan"
+	t1 := "Menu Daftar Latihan "
 	sp1 := (length - len(t1)) / 2
 
 	f.Println("+" + s.Repeat("-", length) + "+")
@@ -111,18 +112,23 @@ func DataDaftarLatihan() {
 	switch num {
 	case 1:
 		OutputJenisLatihan()
+		f.Printf("\n\n")
 		DataDaftarLatihan()
 	case 2:
 		CariJenisLatihan()
+		f.Printf("\n\n")
 		DataDaftarLatihan()
 	case 3:
 		UbahDaftarLatihan()
+		f.Printf("\n\n")
 		DataDaftarLatihan()
 	case 4:
 		HapusDaftarLatihan()
+		f.Printf("\n\n")
 		DataDaftarLatihan()
 	case 5:
 		TambahDaftarLatihan()
+		f.Printf("\n\n")
 		DataDaftarLatihan()
 	case 6:
 		return
@@ -141,7 +147,7 @@ func OutputJenisLatihan() {
 }
 func LinearSearchNamaLatihan(nama string) int {
 	for i := 0; i < n; i++ {
-		if listLatihan[i].namaLatihan == nama {
+		if listLatihan[i].namaLatihan == nama || s.ToLower(listLatihan[i].namaLatihan) == nama || s.ToUpper(listLatihan[i].namaLatihan) == nama {
 			return i
 		}
 	}
@@ -165,7 +171,6 @@ func InsertionSortNamaLatihan() {
 func BinarySearch(nama string) int {
 	var low, high, mid int
 	var target string
-	InsertionSortNamaLatihan()
 	low, high = 0, n-1
 
 	for low <= high {
@@ -256,11 +261,10 @@ func TambahDaftarLatihan() {
 		return
 	}
 
-	f.Print("Masukkan nama latihan baru: ")
+	f.Println("Masukkan nama latihan baru: (Gunakan underscore sebagai spasi) ")
 	f.Scan(&nama)
 
 	f.Print("Masukkan jenis latihan (Cardio/Strength/Flexibility): ")
-	f.Print("Gunakan underscore sebagai spasi")
 	f.Scan(&jenis)
 
 	listLatihan[n].namaLatihan = nama

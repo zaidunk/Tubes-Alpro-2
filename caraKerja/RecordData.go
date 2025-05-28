@@ -161,7 +161,7 @@ func CetakHeader(text string) {
 func InputSatuLatihan(l *latihan) {
 	var d int
 
-	f.Print("Masukkan nama latihan: ")
+	f.Print("Masukkan nama (latihan Gunakan underscore sebagai spasi): ")
 	f.Scan(&l.nama)
 
 	f.Print("Masukkan jenis latihan\n1. Cardio\n2. Strength\n3. Flexibility\n")

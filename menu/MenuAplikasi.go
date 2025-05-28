@@ -86,9 +86,9 @@ func MenuUtama() {
 	var num int
 	f.Printf("-------------------------------------------\n")
 	f.Printf("\nHalo %s, sudah latihan apa saja hari ini?\n", acc)
-	for num != 4 {
+	for num != 5 {
 		f.Printf("-------------------------------------------\n")
-		f.Printf("1. List latihan\n2. Catatan data latihan\n3. Riwayat latihan\n4. Keluar\n\n")
+		f.Printf("1. List latihan\n2.Rekomendasi Latihan\n3. Data latihan\n4. Riwayat latihan\n5. Keluar\n\n")
 		f.Print("Pilihanmu: (1/2/3/4): ")
 		f.Scan(&num)
 
@@ -96,8 +96,10 @@ func MenuUtama() {
 		case 1:
 			caraKerja.DataDaftarLatihan()
 		case 2:
-			//Record()
+			//caraKerja.Recomend()
 		case 3:
+			//Record()
+		case 4:
 			//Riwayat()
 
 		}
