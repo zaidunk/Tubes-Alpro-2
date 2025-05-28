@@ -2,6 +2,7 @@ package caraKerja
 
 import (
 	f "fmt"
+	"math/rand"
 	s "strings"
 	"time"
 )
@@ -30,6 +31,38 @@ var A tabLatihan
 var B tabJadwal
 var c counter
 
+func Record() {
+	var num int
+	CetakHeader("Input Data")
+	f.Println("1. Input Jadwal\n2. Daftar Jadwal\n3. Hapus Jadwal\n4. Input Latihan\n5. Ubah Latihan\n6. Hapus Latihan\n7. Kembali")
+	f.Print("Pilihanmu? (1/2/3/4/5/6/7): ")
+	f.Scan(&num)
+	switch num {
+	case 1:
+		InputJadwal()
+		Record()
+	case 2:
+		OutputJadwal()
+		Record()
+	case 3:
+		HapusJadwal()
+		Record()
+	case 4:
+		InputLatihan()
+		Record()
+	case 5:
+		UbahLatihan()
+		Record()
+	case 6:
+		HapusLatihan()
+		Record()
+	case 7:
+		return
+	default:
+		f.Println("Input tidak valid")
+		Record()
+	}
+}
 func InputJadwal() {
 	var i, x int
 	CetakHeader("Input Data Jadwal")
@@ -47,6 +80,17 @@ func InputJadwal() {
 	f.Print("Masukkan jenis latihan\n1. Cardio\n2. Strength\n3. Flexibility\n")
 	f.Print("Pilihanmu? (1/2/3): ")
 	f.Scan(&B[i])
+}
+
+func OutputJadwal() {
+	CetakHeader("Daftar Jadwal Latihan")
+	var hari = [7]string{"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"}
+	var jenis = [4]string{"-", "Cardio", "Strength", "Flexibility"}
+
+	for i := 0; i < 7; i++ {
+		f.Printf("%s: %s\n", hari[i], jenis[B[i]])
+	}
+	f.Println()
 }
 
 func HapusJadwal() {
@@ -174,4 +218,30 @@ func InputSatuLatihan(l *latihan) {
 
 	f.Print("Masukkan jumlah kalori latihan: ")
 	f.Scan(&l.jKalori)
+}
+
+func Recommend() {
+	var num int
+	var kata string
+	if c.lat == 0 || c.cardio == c.flexibility && c.flexibility == c.strength {
+		num = rand.Intn(3)
+		switch num {
+		case 0:
+			kata = "Cardio"
+		case 1:
+			kata = "Strength"
+		case 2:
+			kata = "Flexible"
+
+		}
+		f.Printf("Mau Latihan apa? Kalo aku sih nyaranin latihan %s\n", kata)
+	}
+
+	if c.cardio > c.strength && c.cardio > c.flexibility {
+		f.Println("Kamu terlalu banyak latihan cardio! Sebaiknya kamu coba tipe latihan lain.")
+	} else if c.strength > c.cardio && c.strength > c.flexibility {
+		f.Println("Kamu terlalu banyak latihan strength! Sebaiknya kamu coba tipe latihan lain.")
+	} else if c.flexibility > c.cardio && c.flexibility > c.strength {
+		f.Println("Kamu terlalu banyak latihan flexibility! Sebaiknya kamu coba tipe latihan lain.")
+	}
 }
