@@ -7,8 +7,8 @@ import (
 func RiwayatLatihan() {
 	var i, x, nLat, tKalori int
 	CetakHeader("Riwayat Latihan")
-	f.Print("1. Laporan\n2. Sorting berdasarkan durasi\n3. Sorting berdasarkan jumlah kalori\n\n")
-	f.Print("Pilihanmu? (1/2/3): ")
+	f.Print("1. Laporan\n2. Sorting berdasarkan durasi\n3. Sorting berdasarkan jumlah kalori\n4. Kembali\n\n")
+	f.Print("Pilihanmu? (1/2/3/4): ")
 	f.Scan(&x)
 	nLat = c.lat
 	switch x {
