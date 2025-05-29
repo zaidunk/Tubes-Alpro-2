@@ -15,6 +15,7 @@ type latihan struct {
 	tanggal time.Time
 	durasi  time.Duration
 	jKalori int
+	tipe    datLat
 }
 
 type counter struct {
@@ -66,7 +67,7 @@ func Record() {
 func InputJadwal() {
 	var i, x int
 	CetakHeader("Input Data Jadwal")
-	f.Print("Masukkan hari\n1. Senin\n2. Selasa\n3. Rabu\n4. Kamis\n 5. Jumat\n 6. Sabtu\n 7. Minggu\n\n")
+	f.Print("Masukkan hari\n1. Senin\n2. Selasa\n3. Rabu\n4. Kamis\n5. Jumat\n6. Sabtu\n7. Minggu\n\n")
 	f.Print("Pilihanmu? (1/2/3/4/5/6/7): ")
 	f.Scan(&x)
 
@@ -133,7 +134,7 @@ func UbahLatihan() {
 	CetakHeader("Ubah Data Latihan")
 
 	//Menampilkan riwayat latihan
-	//Riwayat()
+	PrintLatihan(c.lat)
 	f.Print("Masukkan nomor latihan yang ingin diubah: ")
 	f.Scan(&x)
 
@@ -169,7 +170,7 @@ func HapusLatihan() {
 	var x, i int
 	CetakHeader("Hapus Data Latihan")
 	//Menampilkan riwayat latihan
-	//Riwayat()
+	PrintLatihan(c.lat)
 
 	//Input index latihan yg ingin dihapus
 	f.Scan(&x)
@@ -203,7 +204,11 @@ func CetakHeader(text string) {
 }
 
 func InputSatuLatihan(l *latihan) {
-	var d int
+	var d, x, i int
+	var jenis string
+	var t bool
+	t = false
+	x = 0
 
 	f.Print("Masukkan nama (latihan Gunakan underscore sebagai spasi): ")
 	f.Scan(&l.nama)
@@ -211,6 +216,35 @@ func InputSatuLatihan(l *latihan) {
 	f.Print("Masukkan jenis latihan\n1. Cardio\n2. Strength\n3. Flexibility\n")
 	f.Print("Pilihanmu? (1/2/3): ")
 	f.Scan(&l.jenis)
+	switch l.jenis {
+	case 1:
+		jenis = "Cardio"
+	case 2:
+		jenis = "Strength"
+	case 3:
+		jenis = "Flexibility"
+	}
+
+	f.Print("Masukkan tipe latihan\n")
+	f.Println("Daftar latihan: ")
+	for i = 0; i < n; i++ {
+		if listLatihan[i].jenisLatihan == jenis {
+			f.Printf("%d. %s\n", i+1, listLatihan[i].namaLatihan)
+		}
+	}
+	f.Print("Pilihanmu? (1/2/3/...): ")
+
+	for !t {
+		f.Scan(&x)
+		x = x - 1
+		if listLatihan[x].jenisLatihan == jenis {
+			l.tipe = listLatihan[x]
+			t = true
+		} else {
+			f.Println("Index tidak valid")
+			f.Print("Pilihanmu? (1/2/3/...): ")
+		}
+	}
 
 	f.Print("Masukkan durasi latihan (dalam menit): ")
 	f.Scan(&d)
@@ -231,7 +265,7 @@ func Recommend() {
 		case 1:
 			kata = "Strength"
 		case 2:
-			kata = "Flexible"
+			kata = "Flexibility"
 
 		}
 		f.Printf("Mau Latihan apa? Kalo aku sih nyaranin latihan %s\n", kata)

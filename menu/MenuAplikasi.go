@@ -100,7 +100,7 @@ func MenuUtama() {
 		case 3:
 			caraKerja.Record()
 		case 4:
-			//RiwayatLatihan()
+			caraKerja.RiwayatLatihan()
 
 		}
 	}
