@@ -173,6 +173,7 @@ func HapusLatihan() {
 	PrintLatihan(c.lat)
 
 	//Input index latihan yg ingin dihapus
+	f.Print("Masukkan nomor latihan yang ingin dihapus: ")
 	f.Scan(&x)
 	if x < 1 || x > c.lat {
 		f.Println("Index tidak valid.")
