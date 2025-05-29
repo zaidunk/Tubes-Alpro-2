@@ -89,7 +89,7 @@ func MenuUtama() {
 	for num != 5 {
 		f.Printf("-------------------------------------------\n")
 		f.Printf("1. List latihan\n2. Rekomendasi Latihan\n3. Data latihan\n4. Riwayat latihan\n5. Keluar\n\n")
-		f.Print("Pilihanmu: (1/2/3/4): ")
+		f.Print("Pilihanmu: (1/2/3/4/5): ")
 		f.Scan(&num)
 
 		switch num {

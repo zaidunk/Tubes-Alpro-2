@@ -1,8 +1,9 @@
 package caraKerja
 
 import (
-	"fmt"
 	f "fmt"
+
+	"github.com/zaidunk/Tubes-Alpro-2/menu"
 )
 
 func RiwayatLatihan() {
@@ -24,12 +25,18 @@ func RiwayatLatihan() {
 			tKalori = tKalori + A[i].jKalori
 		}
 		f.Printf("Total kalori yang dibakar selama %d latihan terakhir: %d kcal\n", nLat, tKalori)
+		RiwayatLatihan()
 	case 2:
 		SelectionSortDurasiLatihan()
 		PrintLatihan(nLat)
+		RiwayatLatihan()
 	case 3:
 		SelectionSortJumlahKaloriLatihan()
 		PrintLatihan(nLat)
+		RiwayatLatihan()
+	}
+	if x == 4 {
+		menu.MenuUtama()
 	}
 }
 
@@ -86,6 +93,6 @@ func PrintLatihan(nLat int) {
 	f.Printf("%-5s %-15s %-15s %-15s %-15s %-8s %-15s\n", "No.", "Nama", "Jenis", "Tipe", "Durasi", "Kalori", "Tanggal")
 
 	for i = 0; i < nLat; i++ {
-		fmt.Printf("%-5d %-15s %-15s %-15s %-15s %-8d %-15s\n", i+1, A[i].nama, A[i].tipe.jenisLatihan, A[i].tipe.namaLatihan, A[i].durasi.String(), A[i].jKalori, A[i].tanggal.Format("2006-01-02"))
+		f.Printf("%-5d %-15s %-15s %-15s %-15s %-8d %-15s\n", i+1, A[i].nama, A[i].tipe.jenisLatihan, A[i].tipe.namaLatihan, A[i].durasi.String(), A[i].jKalori, A[i].tanggal.Format("2006-01-02"))
 	}
 }
