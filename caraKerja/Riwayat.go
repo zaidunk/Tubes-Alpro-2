@@ -2,8 +2,6 @@ package caraKerja
 
 import (
 	f "fmt"
-
-	"github.com/zaidunk/Tubes-Alpro-2/menu"
 )
 
 func RiwayatLatihan() {
@@ -36,7 +34,7 @@ func RiwayatLatihan() {
 		RiwayatLatihan()
 	}
 	if x == 4 {
-		menu.MenuUtama()
+		return
 	}
 }
 
