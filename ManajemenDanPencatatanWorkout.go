@@ -6,4 +6,5 @@ import (
 
 func main() {
 	menu.MenuLogin()
+	menu.Exit()
 }

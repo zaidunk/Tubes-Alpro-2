@@ -25,7 +25,7 @@ func MenuLogin() {
 	} else if num == 2 {
 		Daftar()
 	} else if num == 3 {
-		Exit()
+		return
 	}
 
 }
